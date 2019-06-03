@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-biometric" version="0.0.1">
+   <name>BiometricWrapper</name>
+   <js-module name="BiometricWrapper" src="www/BiometricWrapper.js">
+      <clobbers target="cordova.plugins.BiometricWrapper" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="BiometricWrapper">
+            <param name="android-package" value="cordova.plugin.biometric.BiometricWrapper" />
+         </feature>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-feature android:name="android.hardware.camera" android:required="true" />
+        <uses-feature android:name="android.hardware.camera.autofocus" android:required="true" />
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <activity android:name="cordova.plugin.biometric.IRISActivity" android:screenOrientation="portrait" android:configChanges="orientation"></activity>
+        <activity android:name="cordova.plugin.biometric.MantraRDActivity" android:screenOrientation="portrait" android:configChanges="orientation"></activity>
+      </config-file>
+
+      <source-file src="src/android/BiometricWrapper.java" target-dir="src/cordova/plugin/biometric" />
+      <source-file src="src/android/IRISActivity.java" target-dir="src/cordova/plugin/biometric" />
+
+      <source-file src="src/android/CustOpts.java" target-dir="src/cordova/plugin/biometric" />
+      <source-file src="src/android/Opts.java" target-dir="src/cordova/plugin/biometric" />
+      <source-file src="src/android/Param.java" target-dir="src/cordova/plugin/biometric" />
+      <source-file src="src/android/PidOptions.java" target-dir="src/cordova/plugin/biometric" />
+      <source-file src="src/android/MantraRDActivity.java" target-dir="src/cordova/plugin/biometric" />
+      <source-file src="src/android/CommonVar.java" target-dir="src/cordova/plugin/biometric" />
+
+      <lib-file src="src/android/libs/mantra.mfs100.jar"/>
+      <lib-file src="src/android/libs/SamsungIndiaIdentity.jar"/>
+      <lib-file src="src/android/libs/simple-xml-2.7.1.jar"/>
+      <lib-file src="src/android/libs/stax-api-1.0-2.jar" />
+
+      <resource-file src="src/android/layouts/activity_mantra_rd.xml" target="res/layout/activity_mantra_rd.xml" />
+
+   </platform>
+</plugin>

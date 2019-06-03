@@ -1,0 +1,25 @@
+{
+  "name": "cordova-plugin-biometric",
+  "version": "0.0.1",
+  "description": "Cordova Biometric Plugin",
+  "cordova": {
+    "id": "cordova-plugin-biometric",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranav9k/cordova-plugin-biometric.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Pranav Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pranav9k/cordova-plugin-biometric/issues"
+  },
+  "homepage": "https://github.com/pranav9k/cordova-plugin-biometric#readme"
+}
